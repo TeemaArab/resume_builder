@@ -82,7 +82,7 @@ const Dashboard = () => {
             return(
 
               // nvigate is used to go to special user's resume page
-              <button key={index} onClick ={()=>navigate(`/app/builder/${resume.id}`)} className= ' relative w-full sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 border border group hover:shadow-lg transition-all duration-300 cursor-pointer'
+              <button key={index} onClick ={()=>navigate(`/app/builder/${resume._id}`)} className= ' relative w-full sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 border border group hover:shadow-lg transition-all duration-300 cursor-pointer'
                style={{background:`linear-gradient(135deg, ${baseColor}10, ${baseColor}40)`, borderColor: baseColor + '40'}}>
 
                 <FilePenLineIcon className='size-7 group-hover:scale-105 transition-all ' style={{color: baseColor}} />
