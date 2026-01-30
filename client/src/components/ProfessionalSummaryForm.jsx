@@ -13,7 +13,7 @@ const ProfessionalSummaryForm = ({data, onChange, setResumeData}) => {
 
         {/* right side */}
         <button className='flex items-center gap-2 px-3 py-1 text-sm bh-purple-100 text-purple-700 
-        rounded hover:bg-purple-200 transition-colors disables:capacity-50'>
+        rounded hover:bg-purple-200 transition-colors disabled:capacity-50'>
           <Sparkles className='size-4 '/>
           AI Enhance
         </button>
