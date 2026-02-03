@@ -1,6 +1,7 @@
-import User from "../models/User";
+import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import Resume from "../models/Resume.js";
 
 
 const generateToken = (userId)=>{
@@ -47,7 +48,7 @@ export const registerUser = async (req,res) => {
 
     }catch(error){
         console.error("Error registering user:", error);
-        res.status(400).json({message: error.message});
+        return  res.status(400).json({message: error.message});
     }
 }
 
@@ -84,7 +85,7 @@ export const loginUser = async (req,res) => {
 
     }catch(error){
         console.error("Error logging in user:", error);
-        res.status(400).json({message: error.message});
+       return  res.status(400).json({message: error.message});
     }
 }
 
@@ -92,7 +93,7 @@ export const loginUser = async (req,res) => {
 // controller for getting user profile
 // get: /api/users/profile
 
-export const getUserByID = async (req,res) => {
+export const getUserById = async (req,res) => {
     try{
        const userId = req.userId
             // check if user already exists
@@ -104,11 +105,26 @@ export const getUserByID = async (req,res) => {
           //return user
              user.password = undefined; // hide password in response
 
-      return res.status(200).json({ user });
+               return res.status(200).json({ user });
         
 
     }catch(error){
         console.error("Error logging in user:", error);
-        res.status(400).json({message: error.message});
+        return res.status(400).json({message: error.message});
+    }
+}
+
+//-----------------------------------------------------------------------
+//controller for getting user resumes
+// get: /api/users/resumes
+
+export const getUserResumes = async (req,res) => {
+    try{
+        const userId= req.userId;
+        // fetch user resumes from database
+        const resumes = await Resume.find({userId});
+        return res.status(200).json({resumes});
+    }catch(error){
+       return res.status(400).json({message: error.message});
     }
 }
