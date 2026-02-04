@@ -4,6 +4,8 @@ import "dotenv/config"
 import connectDB from './configs/db.js';
 import userRouter from './routes/userRoutes.js';
 import resumeRouter from './routes/resumeRoutes.js';
+import aiRouter from './routes/aiRoutes.js';
+
 
 
 const app = express();
@@ -19,7 +21,8 @@ app.use(cors());
 
 app.get('/',(req,res)=> res.send('Server is live...'));
 app.use('/api/users', userRouter);
-app.use('/api/resumes', resumeRouter);   
+app.use('/api/resumes', resumeRouter);  
+app.use('/api/ai', aiRouter); 
 
 //start express application
 app.listen(PORT, () =>{
