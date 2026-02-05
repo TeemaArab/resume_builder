@@ -3,7 +3,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { login } from '../app/features/authSlice';
 import toast, {Toaster} from 'react-hot-toast'
-import api from '../configs/api.js';
+import api from '../configs/api.js'
 
 const Login = () => {
   
@@ -23,7 +23,8 @@ const Login = () => {
         e.preventDefault()
         try{
            const {data} = await api.post(`/api/users/${state}`, formData)
-           dispatch(login(data))
+        //    dispatch(login(data))
+           dispatch(login({ token: data.token, user: data.user }))
            localStorage.setItem('token', data.token)
            toast.success(data.message)
 
