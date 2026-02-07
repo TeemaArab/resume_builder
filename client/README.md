@@ -1,16 +1,151 @@
-# React + Vite
+Resume Builder – Full Stack Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Overview
 
-Currently, two official plugins are available:
+The Resume Builder is a full-stack web application that allows users to create, edit, preview, and manage professional resumes online. The application provides a user-friendly interface for entering resume details and securely stores data using a backend API and database.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was built to demonstrate full-stack development skills, including frontend development, backend APIs, authentication, and database integration.
+-----------------------------------------------------------------------------------------
 
-## React Compiler
+Teck Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Frontend
+React (Vite)
+JavaScript (ES6)
+Tailwind CSS
+Axios (API communication)
+Redux Toolkit (state management)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-----------------------------------------------------------------------------------------
+
+Backend
+
+Node.js
+Express.js
+MongoDB (with Mongoose)
+JWT Authentication
+RESTful APIs
+Multer (file upload)
+ImageKit (image handling)
+OpenAI API (AI-powered features)
+
+------------------------------------------------------------------------------------------
+
+Key Features
+
+User authentication (signup & login)
+Create, edit, and save resumes
+Multiple resume templates
+Real-time resume preview
+AI-assisted resume content generation
+Image upload for profile pictures
+Secure API with JWT authentication
+Responsive and clean UI
+
+
+-------------------------------------------------------------------------------------------
+
+      ###### Frontend Architecture
+      
+client/                               # Frontend (React + Vite)
+└── src/
+    ├── app/
+    │   ├── features/                  # Redux store & slices
+    │   │   └── authSlice.js
+    │   └── store.js
+    │
+    ├── assets/
+    │   ├── assets.js                # Images and static assets
+    │   ├── dummy_profile.png
+    │   ├── favicon.ico
+    │   └── logo.svg
+    │
+    ├── configs/
+    │   └── api.js
+    │
+    ├── components/
+    │   ├── home/                      # Landing page components  
+    │   │   ├── Banner.jsx
+    │   │   ├── CallToAction.jsx
+    │   │   ├── Features.jsx
+    │   │   ├── Footer.jsx
+    │   │   ├── Hero.jsx
+    │   │   ├── Testimonial.jsx
+    │   │   └── Title.jsx
+    │   │
+    │   ├── templates/                 # Resume templates
+    │   │   ├── ClassicTemplate.jsx
+    │   │   ├── MinimalImageTemplate.jsx
+    │   │   ├── MinimalTemplate.jsx
+    │   │   └── ModernTemplate.jsx
+    │   │
+    │   ├── ColorPicker.jsx
+    │   ├── EducationForm.jsx
+    │   ├── ExperienceForm.jsx
+    │   ├── Loader.jsx
+    │   ├── Navbar.jsx
+    │   ├── PersonalInfoForm.jsx
+    │   ├── ProfessionalSummaryForm.jsx
+    │   ├── ProjectForm.jsx
+    │   ├── ResumePreview.jsx
+    │   ├── SkillForm.jsx
+    │   └── TemplateSelector.jsx
+    │
+    ├── pages/                     # Application pages
+    │   ├── Home.jsx
+    │   ├── Login.jsx
+    │   ├── Dashboard.jsx
+    │   ├── ResumeBuilder.jsx
+    │   ├── Preview.jsx
+    │   └── Layout.jsx
+    │
+    ├── App.jsx
+    ├── main.jsx
+    └── index.css
+
+
+   ###### Backend Architecture
+    server/
+├── configs/
+│   ├── ai.js               # OpenAI / AI feature configuration
+│   ├── db.js               # MongoDB connection setup
+│   ├── imageKit.js         # ImageKit configuration
+│   └── multer.js           # File upload configuration (Multer)
+│
+├── controllers/
+│   ├── aiController.js     # AI-related request logic
+│   ├── resumeController.js # Resume CRUD logic
+│   └── userController.js   # Auth + user actions logic
+│
+├── middlewares/
+│   └── authMiddleware.js   # JWT protection middleware
+│
+├── models/
+│   ├── Resume.js           # Resume schema/model
+│   └── User.js             # User schema/model
+│
+├── routes/
+│   ├── aiRoutes.js         # AI endpoints
+│   ├── resumeRoutes.js     # Resume endpoints
+│   └── userRoutes.js       # Auth/user endpoints
+│
+├── server.js               # Main Express entry point
+├── package.json
+├── package-lock.json
+└── .env                    # Backend environment variables (not committed)
+
+
+Backend Flow 
+
+server.js starts the Express app and connects everything
+
+routes/ defines the API endpoints (URLs)
+
+controllers/ contains the actual logic for each endpoint
+
+models/ defines MongoDB data shapes (User, Resume)
+
+middlewares/ protects endpoints using JWT auth
+
+configs/ stores setup files (DB, AI, image upload, etc.)
