@@ -1,3 +1,4 @@
+import { type } from "os";
 import imageKit from "../configs/imageKit.js";
 import Resume from "../models/Resume.js";
 import fs from 'fs';
@@ -113,20 +114,26 @@ export const updateResume = async(req,res) =>{
         const image = req.file;
 
 
-        let resumeDataCopy = JSON.parse(JSON.stringify(resumeData));
+        let resumeDataCopy;
+         if(typeof resumeData === 'string'){
+            resumeDataCopy = await JSON.parse(resumeData);
+         }else{
+            resumeDataCopy = structuredClone(resumeData);
+         }
 
         if(image){
 
             const imageBufferData = fs.createReadStream(image.path)
             const response = await imageKit.files.upload({
-                file: imageBufferData,
-                fileName: 'resume.png',
-                folder:'user-resumes',
-                transformation:{
-                    pre: 'w-300, h-300, fo-face, z-0.75' +(removeBackground ? ', e-bgremove' : '')
-                }
-                });
-                
+                    file: imageBufferData,
+                    fileName: 'resume.png',
+                    folder:'user-resumes',
+                    transformation:{
+                        pre: 'w-300,h-300,fo-face,z-0.75' +
+                        (removeBackground ? ',e-bgremove' : '')
+                    }
+                    });
+                    
             resumeDataCopy.personal_info.image = response.url;
         }
 
