@@ -1,6 +1,6 @@
-Resume Builder – Full Stack Web Application
+# Resume Builder – Full Stack Web Application
 
-Overview
+# Overview
 
 The Resume Builder is a full-stack web application that allows users to create, edit, preview, and manage professional resumes online. The application provides a user-friendly interface for entering resume details and securely stores data using a backend API and database.
 
@@ -8,7 +8,7 @@ This project was built to demonstrate full-stack development skills, including f
 
 -----------------------------------------------------------------------------------------------------------------
 
-UI Scope & Feature Availability
+# UI Scope & Feature Availability
 
 This project focuses primarily on the Resume Builder functionality.
 Some UI elements (such as landing page navigation links, testimonials interactions, and demo buttons) are part of the template design and are not fully functional by design.
@@ -22,19 +22,16 @@ The core functional flow of the application is:
 Other UI sections are included for presentation and layout purposes only and may be implemented in future iterations.
 ----------------------------------------------------------------------------------------------------------------
 
-Teck Stack
+ # Teck Stack
 
-Frontend
+# Frontend
 React (Vite)
 JavaScript (ES6)
 Tailwind CSS
 Axios (API communication)
 Redux Toolkit (state management)
 
-
------------------------------------------------------------------------------------------
-
-Backend
+# Backend
 
 Node.js
 Express.js
@@ -47,7 +44,7 @@ OpenAI API (AI-powered features)
 
 ------------------------------------------------------------------------------------------
 
-Key Features
+# Key Features
 
 User authentication (signup & login)
 Create, edit, and save resumes
@@ -61,7 +58,7 @@ Responsive and clean UI
 
 -------------------------------------------------------------------------------------------
 
-      ###### Frontend Architecture
+# Frontend Architecture
       
 client/                               # Frontend (React + Vite)
 └── src/
@@ -120,7 +117,7 @@ client/                               # Frontend (React + Vite)
     └── index.css
 
 
-   ###### Backend Architecture
+# Backend Architecture
     server/
 ├── configs/
 │   ├── ai.js               # OpenAI / AI feature configuration
@@ -151,7 +148,7 @@ client/                               # Frontend (React + Vite)
 └── .env                    # Backend environment variables (not committed)
 
 
-Backend Flow 
+# Backend Flow 
 
 server.js starts the Express app and connects everything
 
