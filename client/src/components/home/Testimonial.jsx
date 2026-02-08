@@ -47,7 +47,7 @@ const Testimonial = () => {
 
   return (
     <>
-    <div id='testimonial' className='flex flex-col items-center my-10 scroll-mt-12'>
+    <div id='testimonials' className='flex flex-col items-center my-10 scroll-mt-12'>
 
              <div className="flex items-center gap-2 text-sm text-purple-600 bg-purple-400/10 border rounded-full px-6 py-1.5">
             <BookUserIcon className='size-4.5 stroke-purple-600'/>

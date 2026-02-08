@@ -5,7 +5,22 @@ Overview
 The Resume Builder is a full-stack web application that allows users to create, edit, preview, and manage professional resumes online. The application provides a user-friendly interface for entering resume details and securely stores data using a backend API and database.
 
 This project was built to demonstrate full-stack development skills, including frontend development, backend APIs, authentication, and database integration.
------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------
+
+UI Scope & Feature Availability
+
+This project focuses primarily on the Resume Builder functionality.
+Some UI elements (such as landing page navigation links, testimonials interactions, and demo buttons) are part of the template design and are not fully functional by design.
+
+The core functional flow of the application is:
+
+ => User authentication (register / login)
+ => Creating, editing, and managing resumes
+ => Previewing and downloading resumes
+
+Other UI sections are included for presentation and layout purposes only and may be implemented in future iterations.
+----------------------------------------------------------------------------------------------------------------
 
 Teck Stack
 
