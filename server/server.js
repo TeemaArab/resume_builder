@@ -38,7 +38,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // helps preflight
+app.options(/.*/, cors(corsOptions)); // helps preflight
 
 
 app.get('/',(req,res)=> res.send('Server is live...'));
