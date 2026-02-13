@@ -143,7 +143,7 @@ const saveResume = async() =>{
       <div className='max-w-7xl mx-auto px-4 pb-8'>
         <div className='grid lg:grid-cols-12 gap-8'>
             {/* left panel- form */}
-             <div className='relative lg:col-span-5 rounded-lg overflow-hidden'>
+             <div className='relative lg:col-span-5 rounded-lg overflow-hidden no-print'>
                   <div className='bg-white rounded-lg shadow-sm border border-gray-200 p-6 pt-1'>
                            {/*progress bar using activeSectionindex  */}
                            <hr className='absolute top-0 left-0 right-0 border-2 border-gray-200' />
@@ -229,7 +229,7 @@ const saveResume = async() =>{
               <div className='lg:col-span-7 max-lg:mt-6'>
                    <div className='relative w-full'>
                     {/* buttons */}
-                        <div className='absolute bottom-3 left-0 right-0 flex items-center justify-end gap-2'>
+                        <div className='absolute bottom-3 left-0 right-0 flex items-center justify-end gap-2 no-print'>
                             {resumeData.public && (
                               <button onClick={handleShare}
                               className='flex items-center p-2 px-4 gap-2 text-xs bg-gradient-to-br from-blue-100 to-blue-200 text-blue-600
