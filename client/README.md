@@ -161,3 +161,7 @@ models/ defines MongoDB data shapes (User, Resume)
 middlewares/ protects endpoints using JWT auth
 
 configs/ stores setup files (DB, AI, image upload, etc.)
+
+
+----------------------------------------------------
+Backedn url in AWS =>   http://resume-builder-backend-env.eba-3hzmbfh2.us-east-1.elasticbeanstalk.com/
