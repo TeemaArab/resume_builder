@@ -25,7 +25,7 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: (origin, callback) => {
-    // allow Postman / server-to-server (no origin)
+    
     if (!origin) return callback(null, true);
 
     if (allowedOrigins.includes(origin)) return callback(null, true);
@@ -34,11 +34,11 @@ const corsOptions = {
   },
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
-  // credentials: true, // ✅ ONLY enable if you use cookies/sessions
+ 
 };
 
 app.use(cors(corsOptions));
-app.options(/.*/, cors(corsOptions)); // helps preflight
+app.options(/.*/, cors(corsOptions)); 
 
 
 app.get('/',(req,res)=> res.send('Server is live...'));

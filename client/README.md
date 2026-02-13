@@ -164,4 +164,5 @@ configs/ stores setup files (DB, AI, image upload, etc.)
 
 
 ----------------------------------------------------
-Backedn url in AWS =>   http://resume-builder-backend-env.eba-3hzmbfh2.us-east-1.elasticbeanstalk.com/
+Backend url in render =>   https://resume-builder-backend-ublb.onrender.com
+FrontEnd URL in AWS =>     https://main.d3p14p6n261l7d.amplifyapp.com
