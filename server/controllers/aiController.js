@@ -83,52 +83,108 @@ export const uploadResume = async(req,res) =>{
         }
 
          const systemPrompt = `You are an expert AI agent to extract data from resumes.`
-         const userPrompt=`Extract data from this resume: ${resumeText}
-         Provide data in the following JSON format with no additional text before or after:
+        //  const userPrompt=`Extract data from this resume: ${resumeText}
+        //  Provide data in the following JSON format with no additional text before or after:
 
-                    {
-                    professional_summary: {type: String, default:''},
-                skills:[{type: String}],
-                personal_info:{
-                    image:{type: String, default:''},
-                    full_name:{type: String, default:''},
-                    profession:{type: String, default:''},
-                    email:{type: String, default:''},
-                    phone:{type: String, default:''},
-                    location:{type: String, default:''},
-                    linkedin:{type: String, default:''},
-                    website:{type: String, default:''},
-                },
-                experience:[
-                    {
-                        company:{type: String},
-                        position:{type: String},
-                        start_date:{type: String},
-                        end_date:{type: String},
-                        description:{type: String},
-                        is_current:{type: Boolean},
+        //             {
+        //             professional_summary: {type: String, default:''},
+        //         skills:[{type: String}],
+        //         personal_info:{
+        //             image:{type: String, default:''},
+        //             full_name:{type: String, default:''},
+        //             profession:{type: String, default:''},
+        //             email:{type: String, default:''},
+        //             phone:{type: String, default:''},
+        //             location:{type: String, default:''},
+        //             linkedin:{type: String, default:''},
+        //             website:{type: String, default:''},
+        //         },
+        //         experience:[
+        //             {
+        //                 company:{type: String},
+        //                 position:{type: String},
+        //                 start_date:{type: String},
+        //                 end_date:{type: String},
+        //                 description:{type: String},
+        //                 is_current:{type: Boolean},
 
-                    }
-                ],
+        //             }
+        //         ],
 
-                project:[
-                    {
-                        name:{type: String},
-                        type:{type: String},
-                        description:{type: String},
-                    }
-                ],
+        //         project:[
+        //             {
+        //                 name:{type: String},
+        //                 type:{type: String},
+        //                 description:{type: String},
+        //             }
+        //         ],
 
-                education:[
-                    {
-                        institution:{type: String},
-                        degree:{type: String},
-                        field:{type: String},
-                        graduation_date:{type: String},
-                        gpa:{type: String},
-                    }
-                ],}
-                    `
+        //         education:[
+        //             {
+        //                 institution:{type: String},
+        //                 degree:{type: String},
+        //                 field:{type: String},
+        //                 graduation_date:{type: String},
+        //                 gpa:{type: String},
+        //             }
+        //         ],}
+        //             `
+
+        const userPrompt = `
+            Extract data from this resume text and return ONLY a valid JSON object (no extra text).
+
+            Rules:
+            - Every text field must be a STRING
+            - skills must be an ARRAY OF STRINGS
+            - experience/project/education must be ARRAYS of objects
+            - Do NOT include keys like "type" or "default"
+
+            Return JSON exactly like this shape:
+
+            {
+            "professional_summary": "",
+            "skills": ["", ""],
+            "personal_info": {
+                "image": "",
+                "full_name": "",
+                "profession": "",
+                "email": "",
+                "phone": "",
+                "location": "",
+                "linkedin": "",
+                "website": ""
+            },
+            "experience": [
+                {
+                "company": "",
+                "position": "",
+                "start_date": "",
+                "end_date": "",
+                "description": "",
+                "is_current": false
+                }
+            ],
+            "project": [
+                {
+                "name": "",
+                "type": "",
+                "description": ""
+                }
+            ],
+            "education": [
+                {
+                "institution": "",
+                "degree": "",
+                "field": "",
+                "graduation_date": "",
+                "gpa": ""
+                }
+            ]
+            }
+
+            Resume text:
+            ${resumeText}
+    `;
 
          //Ai generated response
         const response = await ai.chat.completions.create({
