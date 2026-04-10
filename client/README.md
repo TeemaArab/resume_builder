@@ -59,6 +59,7 @@ Responsive and clean UI
 -------------------------------------------------------------------------------------------
 
 # Frontend Architecture
+``` text
       
 client/                               # Frontend (React + Vite)
 └── src/
@@ -146,7 +147,7 @@ client/                               # Frontend (React + Vite)
 ├── package.json
 ├── package-lock.json
 └── .env                    # Backend environment variables (not committed)
-
+```
 
 # Backend Flow 
 
