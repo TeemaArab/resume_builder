@@ -59,7 +59,7 @@ Responsive and clean UI
 
 -------------------------------------------------------------------------------------------
 
-# Frontend Architecture
+# Frontend & Backend Architecture
 ``` text
       
 client/                               # Frontend (React + Vite)
